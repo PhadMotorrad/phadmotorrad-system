@@ -1,0 +1,62 @@
+*{box-sizing:border-box}
+:root{
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:#182033;background:#eef1f5
+}
+body{margin:0;min-height:100vh}
+button,input{font:inherit}
+button{cursor:pointer}
+.app-shell{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+.sidebar{position:sticky;top:0;height:100vh;padding:24px 18px;background:#111827;color:white;display:flex;flex-direction:column}
+.brand{display:flex;align-items:center;gap:12px;padding:0 8px 28px}
+.brand-mark{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:#f0b429;color:#111827;font-weight:900}
+.brand strong,.brand span{display:block}.brand span{font-size:12px;color:#aab4c4;margin-top:3px}
+.nav{display:grid;gap:7px}
+.nav-item{border:0;border-radius:12px;padding:12px 14px;text-align:left;background:transparent;color:#cbd5e1}
+.nav-item:hover,.nav-item.active{background:#26334a;color:white}
+.sidebar-footer{margin-top:auto;padding:16px 10px 4px;display:flex;align-items:center;gap:9px;color:#cbd5e1;font-size:13px}
+.status-dot{width:10px;height:10px;border-radius:50%;background:#ef4444}
+.status-dot.ok{background:#22c55e}
+.main{min-width:0}
+.topbar{display:flex;align-items:center;gap:16px;padding:24px 32px;background:white;border-bottom:1px solid #dde3ea}
+.topbar h1,.topbar p{margin:0}.topbar .primary-button{margin-left:auto}
+.eyebrow{margin:0 0 4px;font-size:11px;font-weight:800;letter-spacing:.16em;color:#8490a4}
+.menu-button{display:none;border:0;background:transparent;font-size:24px}
+.primary-button{border:0;border-radius:11px;padding:11px 16px;background:#1e4f8f;color:white;font-weight:800}
+.primary-button:disabled{opacity:.45;cursor:not-allowed}
+.view{display:none;padding:28px 32px}.view.active{display:block}
+.hero-card{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:28px;border-radius:20px;background:linear-gradient(135deg,#162033,#263d61);color:white}
+.hero-card h2{margin:0 0 8px;font-size:30px}.hero-card p{margin:0;color:#d4dbea}
+.hero-status{padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.12);white-space:nowrap;font-weight:800}
+.hero-status.ok{background:#166534}.hero-status.error{background:#991b1b}
+.stats-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:18px 0}
+.stat-card,.panel,.empty-state{background:white;border:1px solid #dde3ea;border-radius:18px;box-shadow:0 10px 30px rgba(16,24,40,.05)}
+.stat-card{padding:20px}.stat-card span,.stat-card small{display:block;color:#738096}.stat-card strong{display:block;margin:7px 0;font-size:30px}
+.content-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:18px}
+.panel{padding:22px}.panel-header,.section-heading{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.panel h3,.section-heading h2{margin:0}
+.pill{padding:7px 10px;border-radius:999px;background:#fee2e2;color:#991b1b;font-size:12px;font-weight:800}
+.pill.ok{background:#dcfce7;color:#166534}
+.detail-list{margin:18px 0 0}.detail-list div{display:flex;justify-content:space-between;gap:20px;padding:11px 0;border-bottom:1px solid #eef1f4}.detail-list div:last-child{border-bottom:0}
+.detail-list dt{color:#738096}.detail-list dd{margin:0;font-weight:700;text-align:right}
+.quick-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.quick-actions button{border:1px solid #dce3eb;border-radius:12px;padding:14px;background:#f8fafc;color:#26364d;font-weight:800}
+.quick-actions button:hover{background:#edf3f8}
+.section-heading{margin-bottom:18px}
+.empty-state{padding:56px 24px;text-align:center}.empty-state h3{margin:0 0 8px}.empty-state p{margin:0;color:#738096}
+.settings-panel label{display:block;margin-bottom:8px;font-weight:800}.settings-panel input{width:100%;padding:13px;border:1px solid #d7dee7;border-radius:11px;background:#f8fafc}.helper{color:#738096}
+code{padding:2px 6px;border-radius:6px;background:#eef2f7}
+@media(max-width:900px){
+  .app-shell{grid-template-columns:1fr}
+  .sidebar{position:fixed;z-index:10;left:-280px;width:260px;transition:left .2s}.sidebar.open{left:0}
+  .menu-button{display:block}
+  .stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .content-grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .topbar,.view{padding-left:18px;padding-right:18px}
+  .hero-card{align-items:flex-start;flex-direction:column}
+  .hero-card h2{font-size:24px}
+  .stats-grid{grid-template-columns:1fr}
+  .quick-actions{grid-template-columns:1fr}
+}

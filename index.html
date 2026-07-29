@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <meta name="description" content="Phad Motorrad workshop management system">
+  <title>Phad Motorrad System</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">PM</div>
+        <div>
+          <strong>Phad Motorrad</strong>
+          <span>Workshop System</span>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="เมนูหลัก">
+        <button class="nav-item active" data-view="dashboard">Dashboard</button>
+        <button class="nav-item" data-view="customers">Customers</button>
+        <button class="nav-item" data-view="vehicles">Vehicles</button>
+        <button class="nav-item" data-view="inventory">Inventory</button>
+        <button class="nav-item" data-view="orders">Orders</button>
+        <button class="nav-item" data-view="invoices">Invoices</button>
+        <button class="nav-item" data-view="settings">Settings</button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div id="apiDot" class="status-dot"></div>
+        <span id="apiLabel">API not configured</span>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="menu-button" id="menuButton" aria-label="เปิดเมนู">☰</button>
+        <div>
+          <p class="eyebrow">PHAD MOTORRAD</p>
+          <h1 id="pageTitle">Dashboard</h1>
+        </div>
+        <button class="primary-button" id="refreshButton">Refresh API</button>
+      </header>
+
+      <section id="dashboard" class="view active">
+        <div class="hero-card">
+          <div>
+            <p class="eyebrow">SYSTEM OVERVIEW</p>
+            <h2>ยินดีต้อนรับสู่ระบบ Phad Motorrad</h2>
+            <p>ตรวจสอบสถานะระบบ งานซ่อม ลูกค้า รถ และสต็อกได้จากหน้าจอนี้</p>
+          </div>
+          <div class="hero-status" id="heroStatus">Waiting for API</div>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card">
+            <span>Customers</span>
+            <strong id="customerCount">0</strong>
+            <small>ลูกค้าทั้งหมด</small>
+          </article>
+          <article class="stat-card">
+            <span>Vehicles</span>
+            <strong id="vehicleCount">0</strong>
+            <small>รถในระบบ</small>
+          </article>
+          <article class="stat-card">
+            <span>Open Orders</span>
+            <strong id="orderCount">0</strong>
+            <small>งานที่กำลังดำเนินการ</small>
+          </article>
+          <article class="stat-card">
+            <span>Inventory Alerts</span>
+            <strong id="inventoryAlertCount">0</strong>
+            <small>รายการที่ควรตรวจสอบ</small>
+          </article>
+        </div>
+
+        <div class="content-grid">
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">API HEALTH</p>
+                <h3>Google Apps Script</h3>
+              </div>
+              <span class="pill" id="apiPill">Not connected</span>
+            </div>
+            <dl class="detail-list">
+              <div><dt>Application</dt><dd id="apiApp">-</dd></div>
+              <div><dt>Version</dt><dd id="apiVersion">-</dd></div>
+              <div><dt>Status</dt><dd id="apiStatus">-</dd></div>
+              <div><dt>Timestamp</dt><dd id="apiTimestamp">-</dd></div>
+            </dl>
+          </article>
+
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">QUICK ACTIONS</p>
+                <h3>เริ่มงานใหม่</h3>
+              </div>
+            </div>
+            <div class="quick-actions">
+              <button data-go="customers">เพิ่มลูกค้า</button>
+              <button data-go="vehicles">เพิ่มรถ</button>
+              <button data-go="orders">เปิดใบสั่งงาน</button>
+              <button data-go="invoices">สร้างใบแจ้งหนี้</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="customers" class="view">
+        <div class="section-heading">
+          <div><p class="eyebrow">CUSTOMERS</p><h2>ข้อมูลลูกค้า</h2></div>
+          <button class="primary-button" disabled>เพิ่มลูกค้า</button>
+        </div>
+        <div class="empty-state">
+          <h3>พร้อมเชื่อม Customer API</h3>
+          <p>หน้านี้เตรียมไว้สำหรับแสดง เพิ่ม และแก้ไขข้อมูลลูกค้าจาก Google Sheets</p>
+        </div>
+      </section>
+
+      <section id="vehicles" class="view">
+        <div class="section-heading">
+          <div><p class="eyebrow">VEHICLES</p><h2>ข้อมูลรถ</h2></div>
+          <button class="primary-button" disabled>เพิ่มรถ</button>
+        </div>
+        <div class="empty-state">
+          <h3>พร้อมเชื่อม Vehicle API</h3>
+          <p>รองรับทะเบียน รุ่น VIN เลขไมล์ และประวัติการเข้ารับบริการ</p>
+        </div>
+      </section>
+
+      <section id="inventory" class="view">
+        <div class="section-heading">
+          <div><p class="eyebrow">INVENTORY</p><h2>คลังสินค้า</h2></div>
+          <button class="primary-button" disabled>เพิ่มสินค้า</button>
+        </div>
+        <div class="empty-state">
+          <h3>พร้อมเชื่อม Inventory API</h3>
+          <p>รองรับอะไหล่ จำนวนคงเหลือ ราคาทุน ราคาขาย และจุดสั่งซื้อ</p>
+        </div>
+      </section>
+
+      <section id="orders" class="view">
+        <div class="section-heading">
+          <div><p class="eyebrow">ORDERS</p><h2>ใบสั่งงาน</h2></div>
+          <button class="primary-button" disabled>เปิดใบสั่งงาน</button>
+        </div>
+        <div class="empty-state">
+          <h3>พร้อมเชื่อม Order API</h3>
+          <p>รองรับงานซ่อม รายการแรงงาน อะไหล่ สถานะ และกำหนดส่งมอบ</p>
+        </div>
+      </section>
+
+      <section id="invoices" class="view">
+        <div class="section-heading">
+          <div><p class="eyebrow">INVOICES</p><h2>ใบแจ้งหนี้</h2></div>
+          <button class="primary-button" disabled>สร้างใบแจ้งหนี้</button>
+        </div>
+        <div class="empty-state">
+          <h3>พร้อมเชื่อม Invoice API</h3>
+          <p>รองรับยอดก่อนภาษี VAT ส่วนลด การชำระเงิน และสถานะเอกสาร</p>
+        </div>
+      </section>
+
+      <section id="settings" class="view">
+        <div class="section-heading">
+          <div><p class="eyebrow">SETTINGS</p><h2>การตั้งค่าระบบ</h2></div>
+        </div>
+        <div class="panel settings-panel">
+          <label for="apiUrlPreview">Google Apps Script Web App URL</label>
+          <input id="apiUrlPreview" type="text" readonly>
+          <p class="helper">แก้ไข URL จริงในไฟล์ <code>config.js</code> ก่อนอัปโหลดขึ้น GitHub</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
