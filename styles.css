@@ -44,6 +44,8 @@ button{cursor:pointer}
 .quick-actions button:hover{background:#edf3f8}
 .section-heading{margin-bottom:18px}
 .empty-state{padding:56px 24px;text-align:center}.empty-state h3{margin:0 0 8px}.empty-state p{margin:0;color:#738096}
+.data-panel{background:white;border:1px solid #dde3ea;border-radius:18px;overflow:auto;box-shadow:0 10px 30px rgba(16,24,40,.05)}
+.data-table{width:100%;border-collapse:collapse;min-width:720px}.data-table th,.data-table td{padding:14px 16px;border-bottom:1px solid #eef1f4;text-align:left;vertical-align:top}.data-table th{background:#f8fafc;color:#64748b;font-size:12px;text-transform:uppercase}.data-table td{font-size:14px}.data-table small{display:block;color:#738096;margin-top:4px}.data-table tr:last-child td{border-bottom:0}.loading-row,.empty-row,.error-row{padding:48px 20px;text-align:center;color:#738096}.error-row{color:#991b1b}
 .settings-panel label{display:block;margin-bottom:8px;font-weight:800}.settings-panel input{width:100%;padding:13px;border:1px solid #d7dee7;border-radius:11px;background:#f8fafc}.helper{color:#738096}
 code{padding:2px 6px;border-radius:6px;background:#eef2f7}
 @media(max-width:900px){
