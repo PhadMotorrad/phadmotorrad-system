@@ -62,3 +62,16 @@ code{padding:2px 6px;border-radius:6px;background:#eef2f7}
   .stats-grid{grid-template-columns:1fr}
   .quick-actions{grid-template-columns:1fr}
 }
+.modal-open{overflow:hidden}
+.modal-overlay{position:fixed;z-index:100;inset:0;padding:24px;background:rgba(15,23,42,.68);overflow:auto}
+.modal-overlay[hidden]{display:none}
+.modal{width:min(720px,100%);margin:3vh auto;background:white;border-radius:20px;box-shadow:0 24px 80px rgba(0,0,0,.28);overflow:hidden}
+.modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:22px 24px;border-bottom:1px solid #e5eaf0}
+.modal-head h2{margin:0}.modal-close{border:0;background:#eef2f7;border-radius:10px;width:40px;height:40px;font-size:25px;color:#334155}
+.record-form{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:24px}
+.record-form label{display:grid;gap:7px;color:#475569;font-size:13px;font-weight:700}
+.record-form input,.record-form select,.record-form textarea{width:100%;padding:12px 13px;border:1px solid #cfd8e3;border-radius:10px;background:white;color:#172033}
+.record-form textarea{min-height:92px;resize:vertical}.record-form input:focus,.record-form select:focus,.record-form textarea:focus{outline:3px solid rgba(30,79,143,.15);border-color:#1e4f8f}
+.form-wide{grid-column:1/-1}.form-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:4px}.secondary-button{border:1px solid #cfd8e3;border-radius:11px;padding:11px 16px;background:white;color:#334155;font-weight:800}
+.form-message{margin:0;min-height:20px}.form-message.success{color:#166534}.form-message.error{color:#991b1b}
+@media(max-width:560px){.modal-overlay{padding:10px}.record-form{grid-template-columns:1fr;padding:18px}.record-form label,.form-wide{grid-column:1}.form-actions{flex-direction:column-reverse}.form-actions button{width:100%}}
